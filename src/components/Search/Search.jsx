@@ -20,9 +20,9 @@ export class SearchBar extends Component {
 
                     <InputForm
                     type="text"
-                    autocomplete="off"
+                    autoComplete="off"
                     autoFocus
-                    placeHolder="Search images and photos"
+                    placeholder="Search images and photos"
                     />
                 </Form>
             </HeaderSearch>

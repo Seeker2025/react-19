@@ -6,11 +6,16 @@ export class Gallery extends Component {
     };
 
     render(){
+        const { arr } = this.props;
         return (
             <>
-            <ul class="gallery">
-                 {/* <!-- Набір <li> із зображеннями --> */}
-            </ul>
+                <ul >
+                    {
+                    arr.hits?.map((itm) =>{
+                        return <li key={itm.id}>{itm.pageURL}</li>
+                    })
+                    }
+                </ul>
             </>
         )
     }

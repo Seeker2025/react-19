@@ -1,14 +1,1 @@
-import axios from 'axios'; 
-
-const BASE_URL = 'https://pixabay.com/api/';
-const API_KEY = '51186890-e1c8ef6e5ef4b08950db17a2f';
-const hor = 'horizontal';
-
-export const toGet = async(onePage, item) => {
-    try{
-      return await axios.get( `${BASE_URL}?q=${item}&key=${key}&image_type=photo&orientation=${hor}&page=${onePage}&per_page=12`)
-    }catch(error){
-        console.log(error);
-    }
-
-}
+export { toGet } from './Services';
