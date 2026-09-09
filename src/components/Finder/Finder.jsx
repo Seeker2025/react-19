@@ -21,10 +21,20 @@ export class Finder extends Component {
         })
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if(prevState.query !== this.state.query){
+            
+        }
+    }
+
+    toSubmit = (query)=>{
+                this.setState({query})
+            }
+
     render(){
         return (
             <>
-                <SearchBar/>
+                <SearchBar toSubmit = {this.toSubmit}/>
                 <Gallery arr ={this.state.arr}/>
                 <p>Text text</p>
             </>

@@ -7,13 +7,21 @@ import {    HeaderSearch,
 
 export class SearchBar extends Component {
     state = {
-
+        input: '',
     };
+
+    handleChange = e =>{
+        this.setState({ input: e.target.value})
+    }
+
+    handleSubmit = () =>{
+        this.props.toSubmit(this.state.input)
+    }
 
     render(){
         return (
             <HeaderSearch>
-                <Form>
+                <Form onSubmit = {this.handleSubmit}>
                     <ButtonForm type="submit">
                     <span>Search</span>
                     </ButtonForm>
@@ -23,7 +31,10 @@ export class SearchBar extends Component {
                     autoComplete="off"
                     autoFocus
                     placeholder="Search images and photos"
+                    value = {this.state.input}
+                    onChange = {this.handleChange}
                     />
+
                 </Form>
             </HeaderSearch>
         )

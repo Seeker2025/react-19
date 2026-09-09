@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 
+import { Ul } from './ImageGallery.styled';
+
+import { ImageGalleryItem } from "components/ImageGalleryItem";
+
 export class Gallery extends Component {
     state ={
 
@@ -9,13 +13,17 @@ export class Gallery extends Component {
         const { arr } = this.props;
         return (
             <>
-                <ul >
+                <Ul >
                     {
                     arr.hits?.map((itm) =>{
-                        return <li key={itm.id}>{itm.pageURL}</li>
+                        return <li key = {itm.id}>
+                                    <ImageGalleryItem
+                                    img = {itm.webformatURL}>
+                                    </ImageGalleryItem>
+                                </li>
                     })
                     }
-                </ul>
+                </Ul>
             </>
         )
     }
