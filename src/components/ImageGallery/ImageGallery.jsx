@@ -18,9 +18,10 @@ export class Gallery extends Component {
                     arr.hits?.map((itm) =>{
                         return <li key = {itm.id}>
                                     <ImageGalleryItem
-                                    img = {itm.webformatURL}>
+                                    img  = {itm.webformatURL}
+                                    tags = {itm.tags}>
                                     </ImageGalleryItem>
-                                </li>
+                               </li>
                     })
                     }
                 </Ul>

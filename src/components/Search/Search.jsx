@@ -14,8 +14,9 @@ export class SearchBar extends Component {
         this.setState({ input: e.target.value})
     }
 
-    handleSubmit = () =>{
-        this.props.toSubmit(this.state.input)
+    handleSubmit = e =>{
+        e.preventDefault();
+        this.props.toDo(this.state.input)
     }
 
     render(){
