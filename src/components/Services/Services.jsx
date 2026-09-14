@@ -1,10 +1,10 @@
 import axios from 'axios'; 
 
 const BASE_URL = 'https://pixabay.com/api/';
-const API_KEY =  process.env.REACT_APP_PIXABAY_API_KEY;
+const API_KEY =  '51186890-e1c8ef6e5ef4b08950db17a2f';
 const hor =      'horizontal';
 
-console.log('API_KEY:', API_KEY);
+// console.log('API_KEY:', API_KEY);
 
 export const toGet = async({page, query}) => {
     try{

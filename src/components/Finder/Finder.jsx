@@ -42,7 +42,7 @@ export class Finder extends Component {
             <>
                 <SearchBar toDo = {this.toDo}/>
                 <Gallery arr ={this.state.arr}/>
-                <p>Text text</p>
+                {/* <p>Text text</p> */}
             </>
         )
     }

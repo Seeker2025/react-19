@@ -1,13 +1,19 @@
 import { Overlay } from './Modal.styled'
 
-export const Modal = () =>{
+import { createPortal } from "react-dom";
 
-    return (
+const modalRoot = document.querySelector('#modal-root');
+
+export const Modal = ({ largeImageURL, tags }) =>{
+
+    return createPortal(
         <Overlay>
-            <div class="modal">
-                <img src="" alt="" />
-            </div>
-        </Overlay>
+            <Modal>
+                <img src={largeImageURL} alt={tags}/>
+            </Modal>
+        </Overlay>,
+
+        modalRoot
     )
 
 }
