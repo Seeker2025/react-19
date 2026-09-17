@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+import { FaSearch } from "react-icons/fa";
+
+export const Search = styled(FaSearch)`
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.5em;
+  color: #b21616;
+`;
+
 export const HeaderSearch = styled.header`
   top: 0;
   left: 0;

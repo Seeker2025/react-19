@@ -4,8 +4,6 @@ const BASE_URL = 'https://pixabay.com/api/';
 const API_KEY =  '51186890-e1c8ef6e5ef4b08950db17a2f';
 const hor =      'horizontal';
 
-// console.log('API_KEY:', API_KEY);
-
 export const toGet = async({page, query}) => {
     try{
       return await axios.get( BASE_URL, {

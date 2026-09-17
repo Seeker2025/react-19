@@ -1,8 +1,12 @@
 import React, { Component } from "react";
+
+
+
 import {    HeaderSearch,
             Form,
             ButtonForm,
-            InputForm
+            InputForm,
+            Search
                             } from "./Search.styled";
 
 export class SearchBar extends Component {
@@ -24,7 +28,7 @@ export class SearchBar extends Component {
             <HeaderSearch>
                 <Form onSubmit = {this.handleSubmit}>
                     <ButtonForm type="submit">
-                    <span>Search</span>
+                        <Search />
                     </ButtonForm>
 
                     <InputForm

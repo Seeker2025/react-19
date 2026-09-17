@@ -1,22 +1,20 @@
 import React, { Component } from "react";
-// import { createPortal } from "react-dom";
+
+import { Modal } from "components/Modal";
 
 import { Ul } from './ImageGallery.styled';
 
 import { ImageGalleryItem } from "components/ImageGalleryItem";
-import { Modal } from "components/Modal";
-
 
 export class Gallery extends Component {
     state = {
-        modal: false,
-        itm: null
-
+        modal:   false,
+        itm:     null,
     };
 
     toggleModal = () => {
         this.setState((prevState) =>({
-           modal: !prevState.modal
+            modal: !prevState.modal
         }),
         ()=>console.log(this.state.modal))
     }
@@ -34,7 +32,7 @@ export class Gallery extends Component {
     render(){
         const { arr } = this.props;
         return (
-            <>
+            <>  
                 <Ul >
                     {
                     arr.hits?.map((itm) =>{
@@ -50,12 +48,14 @@ export class Gallery extends Component {
                     }
                 </Ul>
 
-                {
-                    this.state.modal
-                    &&
-                    <Modal itm = {this.state.itm}/>
-
-                }
+                    {
+                        this.state.modal
+                        &&
+                        <Modal 
+                        itm     = {this.state.itm}
+                        onClose = {this.toggleModal}
+                        />
+                    }
 
             </>
         )
