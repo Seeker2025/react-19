@@ -18,7 +18,7 @@ export const toGet = async({page, query}) => {
     });
     }catch(error){
         console.log('Pixabay error:', error);
-        console.log(error);
+        throw error;
     }
 
 }

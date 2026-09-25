@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import { Modal } from "components/Modal";
 
@@ -61,4 +62,30 @@ export class Gallery extends Component {
         )
     }
 
+}
+
+// const arr = {
+//     hits: [
+//         {
+//             id: number,
+//             webformatURL: string,
+//             tags: string,
+//             largeImageURL: string,
+//         },
+//     ],
+// };
+
+Gallery.propTypes = {
+    arr: PropTypes.shape({
+    hits: PropTypes.arrayOf(
+        PropTypes.shape({
+
+            id:PropTypes.number.isRequired,
+            webformatURL: PropTypes.string.isRequired,
+            tags: PropTypes.string.isRequired,
+            largeImageURL: PropTypes.string.isRequired
+
+        }).isRequired
+    ).isRequired
+    }).isRequired
 }

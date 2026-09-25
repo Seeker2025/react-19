@@ -9,9 +9,12 @@ import { Button }       from 'components/Button';
 export class Finder extends Component {
     state = {
                 page:    1,
-                query:   'cat',
-                arr:     [],
-                spinner: false
+                query:   '',
+                arr:    {
+                    hits: []
+                } ,
+                spinner: false,
+                button: false
     };
 
     // componentDidMount(){
@@ -28,26 +31,46 @@ export class Finder extends Component {
         if(
             prevState.query !== this.state.query
                         || 
-            prevState.page !== this.state.page
+            prevState.page  !== this.state.page
             )  
             {
             toGet(this.state)
-            .then(responce =>{
-                console.log(responce.data)
-                this.setState({arr: responce.data, spinner: false},
-                () => console.log('this.state.arr:', this.state.arr)
+            .then(response =>{
+                console.log(response.data)
+                this.setState(prevState =>({
+                    arr: {
+                            ...response.data,
+                        hits: [
+                            ...(prevState.arr.hits || []),
+                            ...response.data.hits
+                        ]
+                    },
+                    spinner: false,
+                    button: response.data.hits.length > 0
+                    && 
+                    prevState.page * 12 < response.data.totalHits
+                
+                }),
+                // () => console.log('this.state.arr:', this.state.arr)
+                () => console.log('this.state.arr.hits:', this.state.arr.hits)
                 )
+            }).catch(error =>{
+                console.log(error);
+                this.setState({
+                spinner: false
+                });
             })
         }
     }
 
     toDo = (query) => {
-                this.setState({query, spinner: true})
+                this.setState({query, spinner: true, page: 1, arr: { hits: []}})
             }
 
     toPlusOne = () =>{
         this.setState((prevState) => ({
-            page: prevState.page + 1
+            page: prevState.page + 1,
+            spinner: true
         }),
         () => console.log(this.state.page)
         )
@@ -65,7 +88,12 @@ export class Finder extends Component {
                 <Gallery arr = {this.state.arr}/>
                 {/* <p>Text text</p> */}
 
+                {
+                this.state.button
+                &&
                 <Button clickTo = {this.toPlusOne}/>
+                }
+                
             </>
         )
     }
