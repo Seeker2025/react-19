@@ -37,7 +37,7 @@ export class Gallery extends Component {
                 <Ul >
                     {
                     arr.hits?.map((itm) =>{
-                        return <li key = {itm.id}>
+                        return <li key = {`${itm.id}-${itm.webformatURL}`}>
                                     <ImageGalleryItem
                                     img  = {itm.webformatURL}
                                     tags = {itm.tags}
@@ -75,17 +75,17 @@ export class Gallery extends Component {
 //     ],
 // };
 
-Gallery.propTypes = {
-    arr: PropTypes.shape({
-    hits: PropTypes.arrayOf(
-        PropTypes.shape({
+                            Gallery.propTypes = {
+                                arr:  PropTypes.shape({
+                                hits: PropTypes.arrayOf(
+                                    PropTypes.shape({
 
-            id:PropTypes.number.isRequired,
-            webformatURL: PropTypes.string.isRequired,
-            tags: PropTypes.string.isRequired,
-            largeImageURL: PropTypes.string.isRequired
+                                        id:             PropTypes.number.isRequired,
+                                        webformatURL:   PropTypes.string.isRequired,
+                                        tags:           PropTypes.string.isRequired,
+                                        largeImageURL:  PropTypes.string.isRequired
 
-        }).isRequired
-    ).isRequired
-    }).isRequired
-}
+                                    }).isRequired
+                                ).isRequired
+                                }).isRequired
+                            }

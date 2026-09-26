@@ -30,6 +30,6 @@ Modal.propTypes = {
 
     itm: PropTypes.shape({
         largeImageURL: PropTypes.string.isRequired,
-        tags:         PropTypes.string.isRequired,
+        tags:          PropTypes.string.isRequired,
     }).isRequired
 }
